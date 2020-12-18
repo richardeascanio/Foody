@@ -1,4 +1,4 @@
-package com.example.foody
+package com.richard.foody
 
 import org.junit.Test
 
