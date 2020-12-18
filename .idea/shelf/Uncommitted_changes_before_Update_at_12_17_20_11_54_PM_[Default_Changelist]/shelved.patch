@@ -1,0 +1,16 @@
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Foody\n\nModern Food Recipes App - Android Development with Kotlin | Online Course\n\n![alt text](https://i.postimg.cc/6pt0GT54/Thumbnail-1.png)\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- README.md	(revision dda3416afaf7ad467d833f7d0a356e61353daa01)
++++ README.md	(date 1608263517000)
+@@ -1,5 +1,5 @@
+ # Foody
+ 
+-Modern Food Recipes App - Android Development with Kotlin | Online Course
++Modern Food Recipes App - Android Development with Clean Architecture
+ 
+ ![alt text](https://i.postimg.cc/6pt0GT54/Thumbnail-1.png)
