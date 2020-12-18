@@ -1,4 +1,4 @@
-package com.richard.foody
+package com.richard.foody.data.netwotk
 
 import com.richard.foody.models.FoodRecipe
 import retrofit2.Response
