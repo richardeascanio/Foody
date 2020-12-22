@@ -9,7 +9,5 @@ class Repository
 constructor(
     remoteDataSource: RemoteDataSource
 ) {
-
     val remote = remoteDataSource
-
 }
