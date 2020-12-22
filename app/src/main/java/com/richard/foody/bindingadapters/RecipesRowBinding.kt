@@ -17,6 +17,7 @@ class RecipesRowBinding {
             // Load the image with Coil Library
             imageView.load(imageUrl) {
                 crossfade(600)
+                error(R.drawable.ic_error_placeholder)
             }
         }
 
