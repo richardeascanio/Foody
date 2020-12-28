@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
@@ -16,6 +17,7 @@ import com.richard.foody.R
 import com.richard.foody.adapters.RecipesAdapter
 import com.richard.foody.databinding.FragmentRecipesBinding
 import com.richard.foody.utils.NetworkResult
+import com.richard.foody.utils.observeOnce
 import com.richard.foody.viewmodels.RecipesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_recipes.view.*
@@ -60,7 +62,7 @@ class RecipesFragment : Fragment() {
 
     private fun readDatabase() {
         lifecycleScope.launch {
-            mainViewModel.readRecipes.observe(viewLifecycleOwner) { database ->
+            mainViewModel.readRecipes.observeOnce(viewLifecycleOwner, Observer { database ->
                 if (database.isNotEmpty()) {
                     Log.d("RecipesFragment", "readDatabase called!")
                     mAdapter.setData(database[0].foodRecipe)
@@ -68,7 +70,7 @@ class RecipesFragment : Fragment() {
                 } else {
                     requestApiData()
                 }
-            }
+            })
         }
     }
 
