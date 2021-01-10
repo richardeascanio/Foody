@@ -22,12 +22,15 @@
     <string name="diet_type">Diet Type</string>
     <string name="gluten_free">Gluten free</string>
     <string name="ketogenic">Ketogenic</string>
-    <string name="vegetarian">Vegetarian</string>
-    <string name="vegan">Vegan</string>
     <string name="pescetarian">Pescetarian</string>
     <string name="paleo">Paleo</string>
     <string name="whole_30">Whole 30</string>
     <string name="primal">Primal</string>
     <string name="apply">Apply</string>
     <string name="search">Search</string>
+    <string name="cheap">Cheap</string>
+    <string name="healthy">Healthy</string>
+    <string name="dairy_free">Dairy Free</string>
+    <string name="vegan">Vegan</string>
+    <string name="vegetarian">Vegetarian</string>
 </resources>
