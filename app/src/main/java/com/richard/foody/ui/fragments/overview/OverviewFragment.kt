@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import coil.load
 import com.richard.foody.R
 import com.richard.foody.models.Result
+import com.richard.foody.utils.Constants.RECIPE_RESULT_KEY
 import kotlinx.android.synthetic.main.fragment_overview.view.*
 import kotlinx.android.synthetic.main.fragment_overview.view.title_textView
 import kotlinx.android.synthetic.main.recipes_row_layout.view.*
@@ -28,7 +29,7 @@ class OverviewFragment : Fragment() {
         val mView = inflater.inflate(R.layout.fragment_overview, container, false)
 
         val args = arguments
-        val myBundle: Result? = args?.getParcelable("recipeBundle")
+        val myBundle: Result? = args?.getParcelable(RECIPE_RESULT_KEY)
 
         myBundle?.let {
             mView.mainImageView.load(
