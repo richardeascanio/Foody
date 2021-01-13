@@ -17,8 +17,9 @@ object Constants {
     const val QUERY_FILL_INGREDIENTS = "fillIngredients"
 
     // ROOM Database
-    const val DATABASE_NAME = "recipes_database"
+    const val DATABASE_NAME = "foody_database"
     const val RECIPES_TABLE = "recipes_table"
+    const val FAVOURITE_RECIPES_TABLE = "favourite_recipes_table"
 
     // Bottom Sheet and Preferences
     const val DEFAULT_RECIPES_NUMBER = "50"

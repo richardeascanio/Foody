@@ -22,6 +22,11 @@
             app:destination="@id/detailsActivity" />
     </fragment>
     <fragment
+        android:id="@+id/favouriteRecipesFragment"
+        android:name="com.richard.foody.ui.fragments.favourites.FavouriteRecipesFragment"
+        android:label="Favorites"
+        tools:layout="@layout/fragment_favourite_recipes" />
+    <fragment
         android:id="@+id/foodJokeFragment"
         android:name="com.richard.foody.ui.fragments.foodjoke.FoodJokeFragment"
         android:label="Food Joke"
