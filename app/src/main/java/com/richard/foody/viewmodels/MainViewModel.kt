@@ -42,7 +42,7 @@ constructor(
             repository.local.deleteFavouriteRecipe(favouritesEntity)
         }
 
-    private fun deleteAllFavouriteRecipes() =
+    fun deleteAllFavouriteRecipes() =
         viewModelScope.launch(Dispatchers.IO) {
             repository.local.deleteAllFavouriteRecipes()
         }

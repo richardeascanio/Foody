@@ -32,6 +32,7 @@ class RecipesAdapter : RecyclerView.Adapter<RecipesAdapter.RecipesViewHolder>() 
                     false)
                 return RecipesViewHolder(binding)
             }
+
         }
     }
 

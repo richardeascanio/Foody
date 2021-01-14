@@ -1,13 +1,12 @@
 package com.richard.foody.ui.fragments.favourites
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.richard.foody.R
 import com.richard.foody.adapters.FavouriteRecipesAdapter
 import com.richard.foody.databinding.FragmentFavouriteRecipesBinding
@@ -18,8 +17,8 @@ import kotlinx.android.synthetic.main.fragment_favourite_recipes.view.*
 @AndroidEntryPoint
 class FavouriteRecipesFragment : Fragment() {
 
-    private val mAdapter: FavouriteRecipesAdapter by lazy { FavouriteRecipesAdapter() }
     private val mainViewModel: MainViewModel by viewModels()
+    private val mAdapter: FavouriteRecipesAdapter by lazy { FavouriteRecipesAdapter(requireActivity(), mainViewModel) }
 
     private var _binding: FragmentFavouriteRecipesBinding? = null
     private val binding get() = _binding!!
@@ -40,6 +39,7 @@ class FavouriteRecipesFragment : Fragment() {
         binding.mainViewModel = mainViewModel
         binding.mAdapter = mAdapter
 
+        setHasOptionsMenu(true)
         setUpRecyclerView(binding.favouriteRecipesRecyclerView)
 
         return binding.root
@@ -52,9 +52,35 @@ class FavouriteRecipesFragment : Fragment() {
         }
     }
 
+    private fun showSnackBar() {
+        Snackbar.make(
+            binding.root,
+            "All recipes removed",
+            Snackbar.LENGTH_SHORT
+        )
+            .setAction("Ok") {}
+            .show()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(
+            R.menu.favourites_recipes_menu,
+            menu
+        )
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.deleteAll_favourite_recipes_menu) {
+            mainViewModel.deleteAllFavouriteRecipes()
+            showSnackBar()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+        mAdapter.clearContextualActionMode()
     }
 
 }
