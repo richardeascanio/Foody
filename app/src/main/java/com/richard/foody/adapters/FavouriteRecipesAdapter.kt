@@ -13,7 +13,6 @@ import com.richard.foody.databinding.FavouriteRecipesRowLayoutBinding
 import com.richard.foody.ui.fragments.favourites.FavouriteRecipesFragmentDirections
 import com.richard.foody.utils.RecipesDiffUtil
 import com.richard.foody.viewmodels.MainViewModel
-import kotlinx.android.synthetic.main.favourite_recipes_row_layout.view.*
 
 class FavouriteRecipesAdapter(
     private val requireActivity: FragmentActivity,
@@ -27,7 +26,7 @@ class FavouriteRecipesAdapter(
     private lateinit var mActionMode: ActionMode
     private lateinit var rootView: View
 
-    class FavouriteRecipesViewHolder(private val binding: FavouriteRecipesRowLayoutBinding): RecyclerView.ViewHolder(binding.root) {
+    class FavouriteRecipesViewHolder(val binding: FavouriteRecipesRowLayoutBinding): RecyclerView.ViewHolder(binding.root) {
 
         fun bind(favouritesEntity: FavouritesEntity) {
             binding.favouritesEntity = favouritesEntity
@@ -60,7 +59,7 @@ class FavouriteRecipesAdapter(
         holder.bind(currentRecipe)
 
         // Single click listener
-        holder.itemView.favouriteRecipe_rowLayout.setOnClickListener {
+        holder.binding.favouriteRecipeRowLayout.setOnClickListener {
             if (multiSelection) {
                 applySelection(holder, currentRecipe)
             } else {
@@ -70,7 +69,7 @@ class FavouriteRecipesAdapter(
         }
 
         // Long click listener
-        holder.itemView.favouriteRecipe_rowLayout.setOnLongClickListener {
+        holder.binding.favouriteRecipeRowLayout.setOnLongClickListener {
             if (!multiSelection) {
                 multiSelection = true
                 requireActivity.startActionMode(this)
@@ -96,8 +95,8 @@ class FavouriteRecipesAdapter(
     }
 
     private fun changeRecipeStyle(holder: FavouriteRecipesViewHolder, backgroundColor: Int, strokeColor: Int) {
-        holder.itemView.favouriteRecipe_rowLayout.setBackgroundColor(ContextCompat.getColor(requireActivity, backgroundColor))
-        holder.itemView.favourite_row_cardView.strokeColor = ContextCompat.getColor(requireActivity, strokeColor)
+        holder.binding.favouriteRecipeRowLayout.setBackgroundColor(ContextCompat.getColor(requireActivity, backgroundColor))
+        holder.binding.favouriteRowCardView.strokeColor = ContextCompat.getColor(requireActivity, strokeColor)
     }
 
     private fun applyActionModeTitle() {

@@ -42,7 +42,7 @@
             android:src="@drawable/ic_restaurant"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:tint="@color/white"/>
+            app:tint="@color/white" />
 
         <ImageView
             android:id="@+id/error_imageView"
@@ -65,8 +65,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:alpha="0.5"
-            readApiResponse2="@{mainViewModel.recipesResponse}"
-            readDatabase2="@{mainViewModel.readRecipes}"
+            readApiResponse="@{mainViewModel.recipesResponse}"
+            readDatabase="@{mainViewModel.readRecipes}"
             android:text="No Internet Connection."
             android:textStyle="bold"
             android:textSize="18sp"
@@ -76,4 +76,5 @@
             app:layout_constraintTop_toBottomOf="@+id/error_imageView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    
 </layout>

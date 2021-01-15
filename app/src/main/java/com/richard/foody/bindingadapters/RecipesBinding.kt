@@ -3,6 +3,7 @@ package com.richard.foody.bindingadapters
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import com.richard.foody.data.database.entities.RecipesEntity
 import com.richard.foody.models.FoodRecipe
@@ -14,33 +15,19 @@ class RecipesBinding {
 
         @BindingAdapter("readApiResponse", "readDatabase", requireAll = true)
         @JvmStatic
-        fun errorImageViewVisibility(
-            imageView: ImageView,
+        fun handleReadDataErrors(
+            view: View,
             apiResponse: NetworkResult<FoodRecipe>?,
             database: List<RecipesEntity>?
         ) {
-            if (apiResponse is NetworkResult.Error && database.isNullOrEmpty()) {
-                imageView.visibility = View.VISIBLE
-            } else if (apiResponse is NetworkResult.Loading || apiResponse is NetworkResult.Success) {
-                imageView.visibility = View.INVISIBLE
-            }
-        }
-
-        @BindingAdapter("readApiResponse2", "readDatabase2", requireAll = true)
-        @JvmStatic
-        fun errorTextViewVisibility(
-            textView: TextView,
-            apiResponse: NetworkResult<FoodRecipe>?,
-            database: List<RecipesEntity>?
-        ) {
-            if (apiResponse is NetworkResult.Error && database.isNullOrEmpty()) {
-                textView.apply {
-                    visibility = View.VISIBLE
-                    text = apiResponse.message.toString()
+            when (view) {
+                is ImageView -> {
+                    view.isVisible = apiResponse is NetworkResult.Error && database.isNullOrEmpty()
                 }
-
-            } else if (apiResponse is NetworkResult.Loading || apiResponse is NetworkResult.Success) {
-                textView.visibility = View.INVISIBLE
+                is TextView -> {
+                    view.isVisible = apiResponse is NetworkResult.Error && database.isNullOrEmpty()
+                    view.text = apiResponse?.message.toString()
+                }
             }
         }
     }

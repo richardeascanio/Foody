@@ -8,13 +8,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.richard.foody.R
 import com.richard.foody.adapters.IngredientsAdapter
+import com.richard.foody.databinding.FragmentIngredientsBinding
 import com.richard.foody.models.Result
 import com.richard.foody.utils.Constants.RECIPE_RESULT_KEY
-import kotlinx.android.synthetic.main.fragment_ingredients.view.*
 
 class IngredientsFragment : Fragment() {
 
     private val mAdapter: IngredientsAdapter by lazy { IngredientsAdapter() }
+    private var _binding: FragmentIngredientsBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,26 +25,31 @@ class IngredientsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_ingredients, container, false)
+        _binding = FragmentIngredientsBinding.inflate(inflater, container, false)
 
         val args = arguments
         val myBundle: Result? = args?.getParcelable(RECIPE_RESULT_KEY)
 
-        setUpRecyclerView(view)
+        setUpRecyclerView()
         myBundle?.extendedIngredients?.let {
             mAdapter.setData(it)
         }
 
-        return view
+        return binding.root
     }
 
-    private fun setUpRecyclerView(view: View) {
-        view.ingredients_recyclerView.apply {
-            view.ingredients_recyclerView.adapter = mAdapter
-            view.ingredients_recyclerView.layoutManager = LinearLayoutManager(requireContext())
+    private fun setUpRecyclerView() {
+        binding.ingredientsRecyclerView.apply {
+            adapter = mAdapter
+            layoutManager = LinearLayoutManager(requireContext())
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
     
 }
