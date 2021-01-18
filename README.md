@@ -22,8 +22,6 @@ and others.
 
 <img src="https://github.com/richardeascanio/Foody/blob/master/images/Screenshot_2021-01-18-11-31-37-467_com.richard.foody.jpg?raw=true" width="300">
 
-<img src="https://github.com/richardeascanio/Foody/blob/master/images/Screenshot_2021-01-18-11-31-37-467_com.richard.foody.jpg?raw=true" width="300">
-
 <img src="https://github.com/richardeascanio/Foody/blob/master/images/Screenshot_2021-01-18-11-31-27-769_com.richard.foody.jpg?raw=true" width="300">
 
 <img src="https://github.com/richardeascanio/Foody/blob/master/images/Screenshot_2021-01-18-11-31-43-473_com.richard.foody.jpg?raw=true" width="300">
