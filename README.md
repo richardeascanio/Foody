@@ -19,3 +19,5 @@ Modern Food Recipes App - Android Development with Clean Architecture
 - Motion Layout
 - Dark Theme
 and others.
+
+![alt text](https://github.com/richardeascanio/Foody/blob/master/images/Screenshot_2021-01-18-11-31-37-467_com.richard.foody.jpg)
